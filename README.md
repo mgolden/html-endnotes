@@ -1,5 +1,6 @@
-jquery-endnotes
-===============
+html-endnotes
+=============
+(formerly jquery-endnotes)
 
 
 ## This small javascript file greatly simplifies the creation of footnotes (endnotes really) in an html document.
@@ -8,7 +9,7 @@ This js file was written because I didn't find anyone who had written a simple, 
 
 ## To use
 
-In the head block, include jquery first, and then jquery-endnotes.js.
+In the head block, include html-endnotes.js.
 
 In the document itself, simply enclose the words you want to attach the reference to in a `<span>` element, with a data-ref attribute attached.  The contents of the data-ref element become the reference. The data-ref string contains a list of _pieces_, separated by pipes (`|`).  If a piece starts with the string `http` it is considered a _link piece_. If it doesn't, it is considered a _text piece_. Whenever a link piece precedes a text piece, it goes in an `<a href` around the text. If it doesn't precede a text piece (either because it's the last piece, or because it precedes another link piece), then it is rendered itself into the reference, an `<a href` around itself.  If a text piece is not preceded by a link piece it is rendered as plain text in the reference.
 
@@ -18,17 +19,18 @@ Finally, at the end, you should have an element (generally a `<div>` or a `<sect
 
 ## Appearance
 
-There is no styling or linking applied to the words in the span itself. The numbered superscript is linked to the appropriate endnote and the endnote is linked back to the superscript under a `^` in the endnote itself.
+There is no styling or linking applied to the words in the span itself. The numbered superscript is linked to the appropriate endnote and the endnote is linked back to the superscript under a `^` in the endnote itself. Note that you can style the endnotes by applying a style to the children of the OL element with the id "endnotes", which is created by the script.
 
 ## Example
 
 This is the contents of the example.html file, included in this repo.
 
 ```
+<!DOCTYPE html>
 <html>
 <head>
-  <script type='text/javascript' src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="jquery-endnotes.js"></script>
+  <meta charset="utf-8"/>
+  <script type="text/javascript" src="html-endnotes.js"></script>
 </head>
 <body>
 <h2>My Favorite President</h2>
@@ -53,8 +55,8 @@ There is no way to escape a pipe if you need it in the reference itself.
 
 ## License
 
-jquery-endnotes is freely distributable under the terms of an MIT license.
+html-endnotes is freely distributable under the terms of an MIT license.
 
 ## Copyright
 
-Copyright (c) 2018 Mitchell Golden
+Copyright (c) 2020 Mitchell Golden
